@@ -24,7 +24,7 @@ class App extends React.Component {
         Welcome: {screen: WaitingScreen},
         Auth: {screen: AuthScreen},
         Main: {screen: MainTab}
-    }, {swipeEnable: false, tabBarPosition: "bottom"})
+    }, {swipeEnable: false, tabBarPosition: "bottom", })
     return (
       <View style={{flex: 1}}>
         <MainNavigator  />
