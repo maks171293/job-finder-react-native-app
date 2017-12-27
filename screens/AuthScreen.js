@@ -1,21 +1,33 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, AsyncStorage} from 'react-native';
+import * as actions from '../actions';
+import {connect} from 'react-redux';
 
 class AuthScreen extends React.Component{
+    componentDidMount(){
+        this.props.facebookLogin();
+        this.onAuthComplete(this.props)
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.onAuthComplete(nextProps)
+    }
+
+    onAuthComplete = (props) => {
+        if(props.token){
+            this.props.navigation.navigate('Map');
+        }
+    }
+
     render(){
         return (
-            <View>
-                <Text>Component AuthScreen</Text>               
-                <Text>Component AuthScreen</Text>
-                <Text>Component AuthScreen</Text>
-                <Text>Component AuthScreen</Text>
-                <Text>Component AuthScreen</Text>
-                <Text>Component AuthScreen</Text>
-                <Text>Component AuthScreen</Text>
-
-            </View>
+            <View/>
         )
     }
 }
 
-export default AuthScreen;
+function mapStateToProps({auth}){
+    return {token: auth.token}
+}
+
+export default connect(mapStateToProps, actions)(AuthScreen);

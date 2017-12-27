@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
+import { MapView } from 'expo';
 
 class MapScreen extends React.Component{
     static navigationOptions = ({ navigation, screenProps }) => ({
@@ -7,16 +8,10 @@ class MapScreen extends React.Component{
     });
     render(){
         return (
-            <View>
-                <Text>Component MapScreen</Text>
-                <Text>Component MapScreen</Text>
-                <Text>Component MapScreen</Text>
-                <Text>Component MapScreen</Text>
-                <Text>Component MapScreen</Text>
-                <Text>Component MapScreen</Text>
-                <Text>Component MapScreen</Text>
-                <Text>Component MapScreen</Text>
-                
+            <View style={{flex: 1}}>
+                <MapView 
+                    style={{flex: 1}}
+                />                
             </View>
         )
     }

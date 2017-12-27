@@ -7,6 +7,8 @@ import MapScreen from './screens/MapScreen'
 import DeckScreen from './screens/DeckScreen'
 import ReviewScreen from './screens/ReviewScreen'
 import SettingsScreen from './screens/SettingsScreen'
+import {Provider} from 'react-redux'
+import store from './store'
 
 class App extends React.Component {
   render() {
@@ -24,11 +26,13 @@ class App extends React.Component {
         Welcome: {screen: WaitingScreen},
         Auth: {screen: AuthScreen},
         Main: {screen: MainTab}
-    }, {swipeEnable: false, tabBarPosition: "bottom", })
+    }, {swipeEnable: false, tabBarPosition: "bottom", lazy: true, navigationOptions: {tabBarVisible: false} })
     return (
-      <View style={{flex: 1}}>
-        <MainNavigator  />
-      </View>
+      <Provider store={store}>
+        <View style={{flex: 1}}>
+          <MainNavigator  />
+        </View>
+      </Provider>
     );
   }
 }

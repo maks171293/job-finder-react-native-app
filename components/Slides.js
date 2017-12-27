@@ -13,6 +13,7 @@ class Slides extends React.Component{
                 <Button
                     title="Continue"
                     buttonStyle={styles.buttonStyle}
+                    textStyle={{color: '#42b9f4'}}
                     onPress={this.props.onComplete}
                     />
             )
@@ -24,7 +25,7 @@ class Slides extends React.Component{
             return (
                 <View style={styles.slideStyle} key={slide.text} >
                         <Image 
-                        style={{position: 'absolute', width: SCREEN_WIDTH, height: SCREEN_HEIGHT, top: 0, left: 0}}
+                        style={{position: 'absolute', width: SCREEN_WIDTH+6, height: SCREEN_HEIGHT, top: 0, left: -6}}
                         source={{uri: slide.image}}
                         />
                         <Text style={styles.textStyle}>
@@ -59,16 +60,18 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: 'white',
         backgroundColor: 'transparent',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 50,
+        color: '#42b9f4'
     },
     buttonStyle: {
         backgroundColor: 'transparent',
-        borderColor: 'white',
+        borderColor: '#42b9f4',
         borderWidth: 3,
         borderStyle: 'solid',
         paddingLeft: 30,
         paddingRight: 30,
-        marginTop: 60
+        marginTop: 70,
     }
 })
 
