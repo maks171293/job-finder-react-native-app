@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Platform } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import WaitingScreen from './screens/WaitingScreen'
 import AuthScreen from './screens/AuthScreen'
@@ -20,7 +20,29 @@ class App extends React.Component {
             Review: {screen: ReviewScreen},
             Settings: {screen: SettingsScreen}
           })}
-      }, {swipeEnabled: false, animationEnabled: false, tabBarPosition: "bottom"});
+      }, {swipeEnabled: false, animationEnabled: false, tabBarPosition: "bottom", tabBarOptions: {
+        activeTintColor: '#e91e63',
+        showIcon: true,
+        iconStyle: {
+          width: 40,
+          height: 40
+        },
+        style: {
+          backgroundColor: "#444",
+        },
+        pressColor: "#fff",
+        upperCaseLabel: false,
+        showLabel: true,
+        indicatorStyle: {
+          backgroundColor: 'transparent'
+        },
+        labelStyle: {
+          padding: 0,
+          margin: 0,
+          fontSize: 12
+        }
+      }
+      });
 
       const MainNavigator = TabNavigator({
         Welcome: {screen: WaitingScreen},
